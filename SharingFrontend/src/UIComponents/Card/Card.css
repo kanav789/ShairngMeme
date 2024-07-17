@@ -1,0 +1,84 @@
+/* Card.css */
+.card { 
+    margin:10vh auto ;
+   position: relative;
+   
+    width: 400px;
+
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease;
+    margin-bottom: 10vh;
+    display: flex;
+    justify-content: center;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  
+   
+  }
+  
+
+  
+
+  .cardImage{
+    width: 300px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    .card-image {
+      width: 100%;
+      height: auto;
+      border-radius: 30px;
+    }
+    
+    .card-content {
+      padding: 16px;
+    }
+    
+    .card-content h2 {
+      margin: 0 0 8px 0;
+      font-size: 1.25em;
+    }
+    
+    .card-content p {
+      margin: 0;
+      color: #555;
+    }
+  }
+ 
+  
+  .card-icons {
+    display: flex;
+
+    flex-direction: column;
+    align-items: center ;
+    justify-content: center;
+    gap: 50px;
+    padding: 16px;
+   
+
+  }
+  
+  .icon {
+    cursor: pointer;
+    font-size: 1.5em;
+    transition: color 0.3s ease;
+  }
+  .Profile{
+height: 30px;
+    width: 30px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    border: 3px solid white;
+    border-radius:50% ;
+    
+    img{
+      object-fit: contain;
+      border-radius: 50%;
+    }
+  }
+  .icon:hover {
+    color: #007bff;
+  }
+  

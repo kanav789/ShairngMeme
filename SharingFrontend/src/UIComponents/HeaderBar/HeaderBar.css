@@ -1,0 +1,31 @@
+.HeaderBar{
+    display: flex;
+    gap: 10px;
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding-bottom:10px ;
+    .icon{
+        margin: 11px;
+        height: 6vh;
+        width: 4vw;
+        background-color: #383b71;
+        color: white;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border-radius: 7px;
+        padding: 10px;
+    }
+}
+
+@media (max-width:452px){
+  .HeaderBar{
+    
+    /* gap: -5px; */
+    
+    .icon{
+  width: 7vw;
+    }
+  }
+}

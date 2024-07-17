@@ -1,0 +1,28 @@
+.SearchBar{
+    position: fixed;
+    top: 10px;
+    right: 34vw;
+    
+
+    fill-opacity: 1;
+
+
+    input{
+        height: 7vh;
+        border-radius:10px ;
+        width: 30vw;
+        padding: 10px;
+        background-color: #383b71;
+       border: none;
+       outline: none;
+    }
+}
+
+@media (max-width:450px){
+
+    .SearchBar{
+        input{
+            width: 46vw;
+        }
+    }
+}

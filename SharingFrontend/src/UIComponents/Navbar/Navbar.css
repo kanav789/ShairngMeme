@@ -1,0 +1,204 @@
+* {
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.Container {
+  min-height: 100vh;
+  max-height: 100%;
+  width: 20%;
+  background-color: #383b71;
+ 
+  position: fixed;
+  padding: 8vh 0 0 0;
+  display: flex;
+  flex-direction: column;
+  top: 0;
+  left: 0;
+  z-index: 1;
+.logo {
+  border: 1px solid black;
+margin: auto;
+  height: 13vh;
+  width: 15vw;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: center;
+  background-color: #29264d;
+  border-radius: 16px;
+  p{
+    font-size: 1vw;
+    font-weight: 900;
+  }
+
+  img {
+    width: 4vw;
+    height: 9vh;
+    border-radius: 5px;
+  }
+}
+
+.Menutext {
+  margin-top: 10vh;
+  display: flex;
+  margin-left: 3vw;
+}
+.Menu {
+  ul {
+    margin-top: 2vh;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    li {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      background-color: #625ef0;
+
+      width: 15vw;
+      height: 6vh;
+      border-radius: 10px;
+      margin-bottom: 3vh;
+
+      .icon-text {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+      }
+      .sidepyramid {
+        cursor: pointer;
+      }
+    }
+    li:hover {
+      scale: 0.95;
+    }
+  }
+}
+
+/* copyright */
+.CopyRight{
+    /* margin: auto; */
+display: flex;
+    color: #FFF;
+    align-items: center;
+    justify-content: center;
+  margin-top: 35vh;
+ 
+}
+}
+
+
+
+
+
+
+/* nav Hemu */
+@media (max-width:1286px){
+ .Container{
+
+  
+  .hameburger
+  {
+    position: fixed;
+    left: 6px;
+    height: 20vh;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    top: 3%;
+    cursor: pointer;
+  } .one,
+  .two,
+  .three {
+    width: 20px;
+    height: 4px;
+
+    background-color: #f8f8f8;
+    border-radius: 3px;
+  }
+
+  
+
+   
+ }
+/* container */
+ .Container{
+  position: fixed;
+ width: 50%;
+  left: -344px;
+  z-index: 2;
+
+/* logo  */
+  .logo {
+    width: 28vw;
+   P{
+    font-size: 2vw;
+    font-weight: 900;
+   }
+    img {
+        width: 13vw;
+        height: 8vh;
+        border-radius: 12px;
+    }
+
+  
+ }
+ /* MenuText */
+ .Menutext {
+
+  margin-left: 8vw;
+}
+
+
+/* Menu */
+.Menu{
+  ul{
+    li{
+      width: 35vw;
+    }
+  }
+}
+
+
+ }
+
+ .Container.active{
+  transition: transform 0.3s ease;
+  left: 0;
+ }
+
+ .hameburger.active {
+  transition: transform 0.3s ease; 
+  .one {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  .two {
+    opacity: 0;
+  }
+  .three {
+    transform: rotate(-45deg) translate(5px, -5px);
+  }
+}
+}
+
+@media (max-width:400px){
+  .Container {width: 63%;
+  
+  
+    .logo {
+      width: 40vw;
+      P {
+        font-size: 3vw;}
+  }
+
+
+
+  .Menu {
+    & ul {
+        li {
+            width: 49vw;
+        }}}
+  }
+}
