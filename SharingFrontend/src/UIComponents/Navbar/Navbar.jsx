@@ -5,7 +5,7 @@ import { BsChevronCompactRight } from "react-icons/bs";
 import { MdOutlineAddPhotoAlternate } from "react-icons/md";
 import { CgProfile } from "react-icons/cg";
 import { LiaCopyrightSolid } from "react-icons/lia";
-
+import { NavLink } from "react-router-dom";
 function Navbar() {
   const [Isactive, setActive] = useState(false);
   function toggletheActive() {
@@ -28,7 +28,9 @@ function Navbar() {
               {" "}
               <div className="icon-text">
                 <FaHome />
-                <p>Home</p>
+                <NavLink to={"/"}>
+                  <p className="text-white">Home</p>
+                </NavLink>
               </div>
               <div className="sidepyramid">
                 <BsChevronCompactRight />
@@ -39,7 +41,9 @@ function Navbar() {
               {" "}
               <div className="icon-text">
                 <MdOutlineAddPhotoAlternate />
-                <p>Post</p>
+                <NavLink to={"/Post"}>
+                  <p className="text-white">Post</p>
+                </NavLink>
               </div>
               <div className="sidepyramid">
                 <BsChevronCompactRight />
@@ -51,7 +55,9 @@ function Navbar() {
               <div className="icon-text">
                 <CgProfile />
 
-                <p>Profile</p>
+                <NavLink to={"/Profile"}>
+                  <p className="text-white">Profile</p>
+                </NavLink>
               </div>
               <div className="sidepyramid">
                 <BsChevronCompactRight />
@@ -60,7 +66,7 @@ function Navbar() {
           </ul>
         </div>
 
-        <div className="CopyRight">
+        <div className="CopyRight ">
           <p>CopyRight@Kanav</p>
           <LiaCopyrightSolid />
         </div>

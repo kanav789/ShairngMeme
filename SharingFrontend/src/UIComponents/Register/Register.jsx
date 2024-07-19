@@ -17,10 +17,27 @@ const RegisterForm = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    console.log("Form data submitted:", formData);
+    try {
+      const response = await fetch("http://localhost:8080/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        const result = await response.json();
+        console.log("Sucess", result);
+      } else {
+        console.log("error", response.statusText);
+      }
+    } catch (error) {
+      console.log("error", error);
+    }
   };
 
   return (
