@@ -1,4 +1,5 @@
 const express = require("express");
+require("dotenv").config();
 const jwt = require("jsonwebtoken");
 const cookieParser = require("cookie-parser");
 // Model
@@ -14,19 +15,28 @@ app.get("/", (req, res) => {
   res.send("Hey Kanav");
 });
 
+// Register
 app.post("/register", async (req, res) => {
   try {
-    const data = req.body;
-    const username = data.username;
-    const email = data.email;
-    const password = data.password;
-    let user = await UserModel.create({
-      username,
-      email,
-      password,
-    });
-    let token = jwt.sign({ email }, "shiva");
-    res.cookie("token", token);
+    const { username, email, password } = req.body;
+    console.log(username, email, "and", password);
+    let user = await UserModel.findOne({ email });
+    if (user) {
+      return res
+        .status(202)
+        .json({ message: "User is already registered Please Login" });
+    } else {
+      let newuser = await UserModel.create({
+        username,
+        email,
+        password,
+      });
+
+      let token = jwt.sign({ email }, "shive");
+      res.cookie("token", token);
+
+      return res.status(200).json({ message: "Signup Successfully" });
+    }
   } catch (error) {
     console.log("Failed to Register", error);
   }
@@ -34,12 +44,25 @@ app.post("/register", async (req, res) => {
 
 app.post("/login", async (req, res) => {
   try {
-    const data = req.body;
-    console.log(data);
+    const { email, password } = req.body;
+    let user = await UserModel.findOne({ email, password });
+    if (!user) {
+      return res.status(400).json({ message: "User Not Found" });
+    } else {
+      let token = jwt.sign({ email: email, userid: user._id }, "shiva");
+      res.cookie("token", token);
+
+      return res.json({ message: "Login Successfully" });
+    }
   } catch (error) {
-    console.log(error);
+    return res.status(404).json({ message: error });
   }
 });
+
+
+
+
+
 app.get("/message", (req, res) => {
   res.json({ message: "Hello from server!" });
 });

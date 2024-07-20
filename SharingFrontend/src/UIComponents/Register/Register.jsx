@@ -1,8 +1,11 @@
 // src/RegisterForm.js
 import React, { useState } from "react";
 import "./Register.css";
+import { useNavigate } from "react-router-dom";
 
 const RegisterForm = () => {
+  const navigate = useNavigate();
+  const [message, setMessage] = useState("");
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -31,7 +34,8 @@ const RegisterForm = () => {
 
       if (response.ok) {
         const result = await response.json();
-        console.log("Sucess", result);
+        setMessage(result.message);
+        navigate("/");
       } else {
         console.log("error", response.statusText);
       }
@@ -76,10 +80,11 @@ const RegisterForm = () => {
 
       <button type="submit">Register</button>
 
+      {message && <p className="message">{message}</p>}
       <p className="m-2">
-        If you already have an account please login{" "}
-        <a href="/Login" className="text-gray-500">
-          Here
+        Already have an account?{" "}
+        <a href="/login" className="text-gray-500">
+          Login Here
         </a>
       </p>
     </form>
