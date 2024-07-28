@@ -1,0 +1,36 @@
+.Post{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+
+    .box{
+  height: 50vh;
+  width: 30vw;
+  display:flex ;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+ gap: 20px;
+ background-color: #28274D;
+ box-shadow: 2px 2px 12px 12px #3b3a5a;
+ button{
+    background-color: #625ef0;
+ }
+        input{
+            display: none;
+        }
+    }
+
+}
+
+
+/* media responsiveness */
+@media (max-width:453px){
+.Post{
+    .box{
+        gap: 0px;
+        width: 72vw;
+    }
+}
+}

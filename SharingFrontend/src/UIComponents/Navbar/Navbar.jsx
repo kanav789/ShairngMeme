@@ -5,6 +5,8 @@ import { BsChevronCompactRight } from "react-icons/bs";
 import { MdOutlineAddPhotoAlternate } from "react-icons/md";
 import { CgProfile } from "react-icons/cg";
 import { LiaCopyrightSolid } from "react-icons/lia";
+import { IoChatbubbleEllipsesOutline } from "react-icons/io5";
+import { IoIosNotificationsOutline } from "react-icons/io";
 import { NavLink } from "react-router-dom";
 function Navbar() {
   const [Isactive, setActive] = useState(false);
@@ -57,6 +59,33 @@ function Navbar() {
 
                 <NavLink to={"/Profile"}>
                   <p className="text-white">Profile</p>
+                </NavLink>
+              </div>
+              <div className="sidepyramid">
+                <BsChevronCompactRight />
+              </div>
+            </li>
+
+            <li>
+              {" "}
+              <div className="icon-text">
+                <IoIosNotificationsOutline />
+                <NavLink to={"/Profile"}>
+                  <p className="text-white">Notification</p>
+                </NavLink>
+              </div>
+              <div className="sidepyramid">
+                <BsChevronCompactRight />
+              </div>
+            </li>
+
+            <li>
+              {" "}
+              <div className="icon-text">
+                <IoChatbubbleEllipsesOutline />
+
+                <NavLink to={"/Profile"}>
+                  <p className="text-white">Message</p>
                 </NavLink>
               </div>
               <div className="sidepyramid">
