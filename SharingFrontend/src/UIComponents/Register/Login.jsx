@@ -1,8 +1,10 @@
 import React, { useState } from "react";
 
 import "./Register.css";
+import { useNavigate } from "react-router-dom";
 
 const LoginForm = () => {
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -33,6 +35,7 @@ const LoginForm = () => {
       if (response.ok) {
         const result = await response.json();
         setMessage("Login successful!");
+        navigate("/");
       } else {
         const errorResult = await response.json();
         setMessage(errorResult.message || "Login failed.");

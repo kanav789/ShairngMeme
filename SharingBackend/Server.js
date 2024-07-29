@@ -33,9 +33,9 @@ app.post("/register", async (req, res) => {
       });
 
       let token = jwt.sign({ email }, "shive");
-      res.cookie("token", token);
+      // res.cookie("token", token);
 
-      return res.status(200).json({ message: "Signup Successfully" });
+      return res.status(200).json({ message: "Signup Successfully", token });
     }
   } catch (error) {
     console.log("Failed to Register", error);
