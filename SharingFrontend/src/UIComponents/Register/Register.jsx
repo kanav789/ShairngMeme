@@ -36,7 +36,7 @@ const RegisterForm = () => {
         setMessage(result.message);
 
         localStorage.setItem("token", result.token);
-        console.log(result.token);
+
         navigate("/");
       } else {
         console.log("error", response.statusText);

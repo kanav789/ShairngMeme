@@ -34,6 +34,7 @@ const LoginForm = () => {
 
       if (response.ok) {
         const result = await response.json();
+        localStorage.setItem("token", result.token);
         setMessage("Login successful!");
         navigate("/");
       } else {

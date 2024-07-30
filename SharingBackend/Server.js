@@ -52,7 +52,7 @@ app.post("/login", async (req, res) => {
       let token = jwt.sign({ email: email, userid: user._id }, "shiva");
       res.cookie("token", token);
 
-      return res.json({ message: "Login Successfully" });
+      return res.json({ message: "Login Successfully", token });
     }
   } catch (error) {
     return res.status(404).json({ message: error });

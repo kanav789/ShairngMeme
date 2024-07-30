@@ -14,6 +14,7 @@ import Register from "./UIComponents/Register/Register";
 import LoginForm from "./UIComponents/Register/Login";
 import Post from "./UIComponents/Post/Post";
 import Profile from "./UIComponents/Profile/Profile";
+import Logout from "./UIComponents/Register/Logout";
 // Router
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -23,6 +24,8 @@ const router = createBrowserRouter(
       <Route path="/Register" element={<Register />} />
       <Route path="/Login" element={<LoginForm />} />
       <Route path="/Post" element={<Post />} />
+      <Route path="/logout" element={<Logout />} />
+
       <Route path="/Profile" element={<Profile />} />
     </Route>
   )
