@@ -15,6 +15,12 @@ import LoginForm from "./UIComponents/Register/Login";
 import Post from "./UIComponents/Post/Post";
 import Profile from "./UIComponents/Profile/Profile";
 import Logout from "./UIComponents/Register/Logout";
+
+
+// store
+import store from "./Store/Store";
+import { Provider } from "react-redux";
+import RoutesProtector from "./Protector/RoutesProtector";
 // Router
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -27,12 +33,15 @@ const router = createBrowserRouter(
       <Route path="/logout" element={<Logout />} />
 
       <Route path="/Profile" element={<Profile />} />
+      <Route path="/protector" element={<RoutesProtector />} />
     </Route>
   )
 );
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <RouterProvider router={router} />{" "}
+    <Provider store={store}>
+      <RouterProvider router={router} />{" "}
+    </Provider>
   </React.StrictMode>
 );
