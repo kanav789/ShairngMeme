@@ -2,9 +2,12 @@ import React, { useState } from "react";
 
 import "./Register.css";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { authlogin } from "../../Store/authSlice";
 
 const LoginForm = () => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -36,13 +39,24 @@ const LoginForm = () => {
         const result = await response.json();
         localStorage.setItem("token", result.token);
         setMessage("Login successful!");
+        console.log("Email:", result.email);
+
+        try {
+          dispatch(authlogin());
+        } catch (dispatchError) {
+          console.error("Dispatch error:", dispatchError);
+          throw dispatchError; // Re-throw to be caught by outer catch
+        }
+
         navigate("/");
       } else {
         const errorResult = await response.json();
         setMessage(errorResult.message || "Login failed.");
+        console.error("Error response:", errorResult);
       }
     } catch (error) {
       setMessage("An error occurred. Please try again.");
+      console.error("Catch error:", error);
     }
   };
 

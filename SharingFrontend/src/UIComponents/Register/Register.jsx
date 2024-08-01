@@ -2,10 +2,12 @@
 import React, { useState } from "react";
 import "./Register.css";
 import { useNavigate } from "react-router-dom";
-
+import { authlogin } from "../../Store/authSlice";
+import { useDispatch } from "react-redux";
 const RegisterForm = () => {
   const navigate = useNavigate();
   const [message, setMessage] = useState("");
+  const dispatch = useDispatch();
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -36,6 +38,7 @@ const RegisterForm = () => {
         setMessage(result.message);
 
         localStorage.setItem("token", result.token);
+        dispatch(authlogin());
 
         navigate("/");
       } else {
