@@ -1,18 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
-  status: false,
-  userdata: null,
+  status: localStorage.getItem("authStatus") === "true" || false,
 };
 const authSlice = createSlice({
   name: "auth",
   initialState,
   reducers: {
-    authlogin: (state, action) => {
+    authlogin: (state) => {
       state.status = true;
-      state.userdata = action.payload.userdata;
+      localStorage.setItem("authStatus", state.status);
     },
     logout: (state) => {
       state.status = false;
+      localStorage.removeItem("authStatus", state.status);
     },
   },
 });
