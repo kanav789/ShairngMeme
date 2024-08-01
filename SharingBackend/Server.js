@@ -32,8 +32,8 @@ app.post("/register", async (req, res) => {
         password,
       });
 
-      let token = jwt.sign({ email }, "shive");
-      // res.cookie("token", token);
+      let token = jwt.sign({ email }, "shiva");
+      res.cookie("token", token);
 
       return res.status(200).json({ message: "Signup Successfully", token });
     }
