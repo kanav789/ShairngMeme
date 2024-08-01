@@ -20,23 +20,57 @@ import Logout from "./UIComponents/Register/Logout";
 // store
 import store from "./Store/Store";
 import { Provider } from "react-redux";
-import RoutesProtector from "./Protector/RoutesProtector";
+import ProtectorLayout from "./ProtectorLayout";
+
 // Router
-const router = createBrowserRouter(
-  createRoutesFromElements(
-    <Route path="/" element={<Home />}>
-      <Route path="" element={<Card image="/Image/a.jpg" />} />
-
-      <Route path="/Register" element={<Register />} />
-      <Route path="/Login" element={<LoginForm />} />
-      <Route path="/Post" element={<Post />} />
-      <Route path="/logout" element={<Logout />} />
-
-      <Route path="/Profile" element={<Profile />} />
-      <Route path="/protector" element={<RoutesProtector />} />
-    </Route>
-  )
-);
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Home />,
+    children: [
+      {
+        path: "/login",
+        element: (
+          <ProtectorLayout authentication={false}>
+            <LoginForm />
+          </ProtectorLayout>
+        ),
+      },
+      {
+        path: "/Register",
+        element: (
+          <ProtectorLayout authentication>
+            <Register />
+          </ProtectorLayout>
+        ),
+      },
+      {
+        path: "/Post",
+        element: (
+          <ProtectorLayout authentication>
+            <Post />
+          </ProtectorLayout>
+        ),
+      },
+      {
+        path: "/profile",
+        element: (
+          <ProtectorLayout authentication>
+            <Profile />
+          </ProtectorLayout>
+        ),
+      },
+      {
+        path: "",
+        element: (
+          <ProtectorLayout authentication>
+            <Card />
+          </ProtectorLayout>
+        ),
+      },
+    ],
+  },
+]);
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
