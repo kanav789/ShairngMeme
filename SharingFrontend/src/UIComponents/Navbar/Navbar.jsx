@@ -7,12 +7,21 @@ import { CgProfile } from "react-icons/cg";
 import { LiaCopyrightSolid } from "react-icons/lia";
 import { IoChatbubbleEllipsesOutline } from "react-icons/io5";
 import { IoIosNotificationsOutline } from "react-icons/io";
-import { NavLink } from "react-router-dom";
+import { FiLogOut } from "react-icons/fi";
+import { NavLink, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
+
 function Navbar() {
+  const authStatus = useSelector((state) => state.auth.status);
+  const navigate = useNavigate();
   const [Isactive, setActive] = useState(false);
   function toggletheActive() {
     setActive(!Isactive);
   }
+
+  const Logout = () => {
+    navigate("/logout");
+  };
   return (
     <div>
       <div className={`Container ${Isactive ? "active" : ""}`}>
@@ -92,6 +101,21 @@ function Navbar() {
                 <BsChevronCompactRight />
               </div>
             </li>
+            {authStatus ? (
+              <li>
+                <div className="icon-text">
+                  <FiLogOut />
+                  <h4 onClick={Logout} className="pointer font-bold">
+                    Logout
+                  </h4>
+                </div>
+                <div className="sidepyramid">
+                  <BsChevronCompactRight />
+                </div>
+              </li>
+            ) : (
+              ""
+            )}
           </ul>
         </div>
 

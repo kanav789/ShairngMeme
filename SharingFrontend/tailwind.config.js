@@ -6,6 +6,7 @@ export default {
     extend: {
       colors: {
         customblue: "#383B71",
+        customnav: "#625EF0",
       },
     },
   },

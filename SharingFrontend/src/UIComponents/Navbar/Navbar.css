@@ -89,6 +89,11 @@ display: flex;
 }
 }
 
+.Logoutbutton{
+  position: fixed;
+  bottom: 0%;
+  left: 5%;
+}
 
 
 

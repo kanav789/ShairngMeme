@@ -9,13 +9,12 @@ import {
   createRoutesFromElements,
 } from "react-router-dom";
 import Home from "./Home";
-import Card from "./UIComponents/Card/Card";
+
 import Register from "./UIComponents/Register/Register";
 import LoginForm from "./UIComponents/Register/Login";
 import Post from "./UIComponents/Post/Post";
 import Profile from "./UIComponents/Profile/Profile";
 import Logout from "./UIComponents/Register/Logout";
-
 
 // store
 import store from "./Store/Store";
@@ -61,10 +60,10 @@ const router = createBrowserRouter([
         ),
       },
       {
-        path: "",
+        path: "/logout",
         element: (
           <ProtectorLayout authentication>
-            <Card />
+            <Logout />
           </ProtectorLayout>
         ),
       },
